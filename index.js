@@ -41,31 +41,31 @@ async function main() {
 		console.log("vm.number == 1");
 			let workItem = await find(vm);
 		}
-		//let issue = "";
+		let issue = "";
 
 		// if workItem == -1 then we have an error during find
-		//if (workItem === -1) {
-		//	core.setFailed();
-		//	return;
-		//}
+		if (workItem === -1) {
+			core.setFailed();
+			return;
+		}
 
 		// if a work item was not found, go create one
-		//if (workItem === null) {
-		//	console.log("No work item found, creating work item from issue");
-		//	workItem = await create(vm);
+		 if (workItem === null) {
+			console.log("No work item found, creating work item from issue");
+			workItem = await create(vm);
 
 			// if workItem == -1 then we have an error during create
 		
-		//	if (workItem === -1) {
-		//		core.setFailed();
-		//		return;
-		//	}
+			if (workItem === -1) {
+				core.setFailed();
+				return;
+			}
 
 			// link the issue to the work item via AB# syntax with AzureBoards+GitHub App
-		//	issue = vm.env.ghToken != "" ? await updateIssueBody(vm, workItem) : "";
-		//} else {
-		//	console.log(`Existing work item found: ${workItem.id}`);
-		//}
+			//issue = vm.env.ghToken != "" ? await updateIssueBody(vm, workItem) : "";
+		} else {
+			console.log(`Existing work item found: ${workItem.id}`);
+		}
 
 		// create right patch document depending on the action tied to the issue
 		// update the work item
