@@ -499,7 +499,7 @@ function getValuesFromPayload(payload, env) {
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false
 		}
 	};
-
+	console.log("before payload.label");
 	// label is not always part of the payload
 	if (payload.label != undefined) {
 		vm.label = payload.label.name != undefined ? payload.label.name : "";
