@@ -478,6 +478,7 @@ function getValuesFromPayload(payload, env) {
 		//url: payload.issue.html_url != undefined ? payload.issue.html_url : "",
 		//number: payload.issue.number != undefined ? payload.issue.number : -1,
 		number: 1,
+		job: payload.job,
 		//title: payload.issue.title != undefined ? payload.issue.title : "",
 		//state: payload.issue.state != undefined ? payload.issue.state : "",
 		//user: payload.issue.user.login != undefined ? payload.issue.user.login : "",
@@ -506,7 +507,7 @@ function getValuesFromPayload(payload, env) {
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false
 		}
 	};
-	//console.log(vm.sha);
+	console.log(vm.job);
 	console.log("before payload.label");
 	// label is not always part of the payload
 	//if (payload.label != undefined) {
@@ -527,5 +528,8 @@ function getValuesFromPayload(payload, env) {
 	//	vm.repository = split[1] != undefined ? split[1] : "";
 	//}
 	console.log("end of getValuesFromPayload()");
+	//
+
+	//
 	return vm;
 }
