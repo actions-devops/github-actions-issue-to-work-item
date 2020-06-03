@@ -36,7 +36,11 @@ async function main() {
 		// go check to see if work item already exists in azure devops or not
 		// based on the title and tags
 		console.log("Check to see if work item already exists");
-		//let workItem = await find(vm);
+		if (vm.number == 1)
+		{
+		console.log("vm.number == 1");
+		let workItem = await find(vm);
+		}
 		//let issue = "";
 
 		// if workItem == -1 then we have an error during find
