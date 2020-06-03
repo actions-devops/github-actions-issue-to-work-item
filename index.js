@@ -39,7 +39,7 @@ async function main() {
 		if (vm.number == 1)
 		{
 		console.log("vm.number == 1");
-		let workItem = await find(vm);
+			let workItem = await find(vm);
 		}
 		//let issue = "";
 
@@ -372,7 +372,7 @@ async function find(vm) {
 	let client = null;
 	let workItem = null;
 	let queryResult = null;
-
+	console.log("in find()");
 	try {
 		client = await connection.getWorkItemTrackingApi();
 	} catch (error) {
