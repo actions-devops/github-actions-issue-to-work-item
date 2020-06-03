@@ -486,6 +486,7 @@ function getValuesFromPayload(payload, env) {
 		//comment_url: "",
 		//organization: "",
 		//repository: "",
+		sha : payload.sha,
 		env: {
 			organization: env.ado_organization != undefined ? env.ado_organization : "",
 			orgUrl: env.ado_organization != undefined ? "https://dev.azure.com/" + env.ado_organization : "",
@@ -499,6 +500,7 @@ function getValuesFromPayload(payload, env) {
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false
 		}
 	};
+	console.log(sha);
 	console.log("before payload.label");
 	// label is not always part of the payload
 	if (payload.label != undefined) {
