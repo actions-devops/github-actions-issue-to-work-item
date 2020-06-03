@@ -501,7 +501,7 @@ function getValuesFromPayload(payload, env) {
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false
 		}
 	};
-	console.log(sha);
+	console.log(vm.sha);
 	console.log("before payload.label");
 	// label is not always part of the payload
 	//if (payload.label != undefined) {
