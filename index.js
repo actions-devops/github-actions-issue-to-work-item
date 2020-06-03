@@ -25,10 +25,10 @@ async function main() {
 			env.ado_new_state = "New";
 
 			console.log("Set values from test payload");
-			//vm = getValuesFromPayload(testPayload, env);
+			vm = getValuesFromPayload(testPayload, env);
 		} else {
 			console.log("Set values from payload & env");
-			//vm = getValuesFromPayload(github.context.payload, env);
+			vm = getValuesFromPayload(context, env);
 		}
 
 		// todo: validate we have all the right inputs
