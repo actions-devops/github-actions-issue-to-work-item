@@ -382,7 +382,7 @@ async function find(vm) {
 		core.setFailed(error);
 		return -1;
 	}
-
+	console.log("in find() after connection");
 	let teamContext = { project: vm.env.project };
 
 	let wiql = {
