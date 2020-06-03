@@ -28,7 +28,7 @@ async function main() {
 			//vm = getValuesFromPayload(testPayload, env);
 		} else {
 			console.log("Set values from payload & env");
-			//vm = getValuesFromPayload(context, env);
+			vm = getValuesFromPayload(context, env);
 		}
 
 		// todo: validate we have all the right inputs
