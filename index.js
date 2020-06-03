@@ -36,34 +36,37 @@ async function main() {
 		// go check to see if work item already exists in azure devops or not
 		// based on the title and tags
 		console.log("Check to see if work item already exists");
-		let workItem = await find(vm);
-		let issue = "";
+		//let workItem = await find(vm);
+		//let issue = "";
 
 		// if workItem == -1 then we have an error during find
-		if (workItem === -1) {
-			core.setFailed();
-			return;
-		}
+		//if (workItem === -1) {
+		//	core.setFailed();
+		//	return;
+		//}
 
 		// if a work item was not found, go create one
-		if (workItem === null) {
-			console.log("No work item found, creating work item from issue");
-			workItem = await create(vm);
+		//if (workItem === null) {
+		//	console.log("No work item found, creating work item from issue");
+		//	workItem = await create(vm);
 
 			// if workItem == -1 then we have an error during create
-			if (workItem === -1) {
-				core.setFailed();
-				return;
-			}
+		
+		//	if (workItem === -1) {
+		//		core.setFailed();
+		//		return;
+		//	}
 
 			// link the issue to the work item via AB# syntax with AzureBoards+GitHub App
-			issue = vm.env.ghToken != "" ? await updateIssueBody(vm, workItem) : "";
-		} else {
-			console.log(`Existing work item found: ${workItem.id}`);
-		}
+		//	issue = vm.env.ghToken != "" ? await updateIssueBody(vm, workItem) : "";
+		//} else {
+		//	console.log(`Existing work item found: ${workItem.id}`);
+		//}
 
 		// create right patch document depending on the action tied to the issue
 		// update the work item
+		
+		/*
 		switch (vm.action) {
 			case "opened":
 				workItem === null ? await create(vm) : "";
@@ -98,15 +101,17 @@ async function main() {
 			default:
 				console.log(`Unhandled action: ${vm.action}`);
 		}
-
+		*/
 		// set output message
-		if (workItem != null || workItem != undefined) {
-			console.log(`Work item successfully created or updated: ${workItem.id}`);
-			core.setOutput(`id`, `${workItem.id}`);
-		}
+		
+		//if (workItem != null || workItem != undefined) {
+		//	console.log(`Work item successfully created or updated: ${workItem.id}`);
+		//	core.setOutput(`id`, `${workItem.id}`);
+		//}
 	} catch (error) {
 		core.setFailed(error);
 	}
+	console.log("finished main");
 }
 
 // create Work Item via https://docs.microsoft.com/en-us/rest/api/azure/devops/
@@ -477,7 +482,7 @@ function getValuesFromPayload(payload, env) {
 		//state: payload.issue.state != undefined ? payload.issue.state : "",
 		//user: payload.issue.user.login != undefined ? payload.issue.user.login : "",
 		//body: payload.issue.body != undefined ? payload.issue.body : "",
-		repo_fullname: payload.repository.full_name != undefined ? payload.repository.full_name : "",
+		//repo_fullname: payload.repository.full_name != undefined ? payload.repository.full_name : "",
 		//repo_name: payload.repository.name != undefined ? payload.repository.name : "",
 		//repo_url: payload.repository.html_url != undefined ? payload.repository.html_url : "",
 		//closed_at: payload.issue.closed_at != undefined ? payload.issue.closed_at : null,
@@ -516,11 +521,11 @@ function getValuesFromPayload(payload, env) {
 	//}
 
 	// split repo full name to get the org and repository names
-	if (vm.repo_fullname != "") {
-		var split = payload.repository.full_name.split("/");
-		vm.organization = split[0] != undefined ? split[0] : "";
-		vm.repository = split[1] != undefined ? split[1] : "";
-	}
+	//if (vm.repo_fullname != "") {
+	//	var split = payload.repository.full_name.split("/");
+	//	vm.organization = split[0] != undefined ? split[0] : "";
+	//	vm.repository = split[1] != undefined ? split[1] : "";
+	//}
 	console.log("end of getValuesFromPayload()");
 	return vm;
 }
