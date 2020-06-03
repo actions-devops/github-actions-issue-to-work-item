@@ -25,10 +25,10 @@ async function main() {
 			env.ado_new_state = "New";
 
 			console.log("Set values from test payload");
-			vm = getValuesFromPayload(testPayload, env);
+			//vm = getValuesFromPayload(testPayload, env);
 		} else {
 			console.log("Set values from payload & env");
-			vm = getValuesFromPayload(github.context.payload, env);
+			//vm = getValuesFromPayload(github.context.payload, env);
 		}
 
 		// todo: validate we have all the right inputs
@@ -467,24 +467,25 @@ async function updateIssueBody(vm, workItem) {
 // get object values from the payload that will be used for logic, updates, finds, and creates
 function getValuesFromPayload(payload, env) {
 	// prettier-ignore
+	console.log("in getValuesFromPayload");
 	var vm = {
-		action: payload.action != undefined ? payload.action : "",
-		url: payload.issue.html_url != undefined ? payload.issue.html_url : "",
-		number: payload.issue.number != undefined ? payload.issue.number : -1,
-		title: payload.issue.title != undefined ? payload.issue.title : "",
-		state: payload.issue.state != undefined ? payload.issue.state : "",
-		user: payload.issue.user.login != undefined ? payload.issue.user.login : "",
-		body: payload.issue.body != undefined ? payload.issue.body : "",
-		repo_fullname: payload.repository.full_name != undefined ? payload.repository.full_name : "",
-		repo_name: payload.repository.name != undefined ? payload.repository.name : "",
-		repo_url: payload.repository.html_url != undefined ? payload.repository.html_url : "",
-		closed_at: payload.issue.closed_at != undefined ? payload.issue.closed_at : null,
-		owner: payload.repository.owner != undefined ? payload.repository.owner.login : "",
-		label: "",
-		comment_text: "",
-		comment_url: "",
-		organization: "",
-		repository: "",
+		//action: payload.action != undefined ? payload.action : "",
+		//url: payload.issue.html_url != undefined ? payload.issue.html_url : "",
+		//number: payload.issue.number != undefined ? payload.issue.number : -1,
+		//title: payload.issue.title != undefined ? payload.issue.title : "",
+		//state: payload.issue.state != undefined ? payload.issue.state : "",
+		//user: payload.issue.user.login != undefined ? payload.issue.user.login : "",
+		//body: payload.issue.body != undefined ? payload.issue.body : "",
+		//repo_fullname: payload.repository.full_name != undefined ? payload.repository.full_name : "",
+		//repo_name: payload.repository.name != undefined ? payload.repository.name : "",
+		//repo_url: payload.repository.html_url != undefined ? payload.repository.html_url : "",
+		//closed_at: payload.issue.closed_at != undefined ? payload.issue.closed_at : null,
+		//owner: payload.repository.owner != undefined ? payload.repository.owner.login : "",
+		//label: "",
+		//comment_text: "",
+		//comment_url: "",
+		//organization: "",
+		//repository: "",
 		env: {
 			organization: env.ado_organization != undefined ? env.ado_organization : "",
 			orgUrl: env.ado_organization != undefined ? "https://dev.azure.com/" + env.ado_organization : "",
