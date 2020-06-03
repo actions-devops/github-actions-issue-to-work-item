@@ -384,7 +384,7 @@ async function find(vm) {
 	}
 	console.log("in find() after connection");
 	let teamContext = { project: vm.env.project };
-
+	console.log("in find() after teamContext");
 	let wiql = {
 		query:
 			"SELECT [System.Id], [System.WorkItemType], [System.Description], [System.Title], [System.AssignedTo], [System.State], [System.Tags] FROM workitems WHERE [System.TeamProject] = @project AND [System.Title] CONTAINS '(GitHub Issue #" +
@@ -393,7 +393,7 @@ async function find(vm) {
 			vm.repository +
 			"'",
 	};
-
+	console.log("in find() after query is built");
 	try {
 		queryResult = await client.queryByWiql(wiql, teamContext);
 
@@ -481,7 +481,7 @@ function getValuesFromPayload(payload, env) {
 		//action: payload.action != undefined ? payload.action : "",
 		//url: payload.issue.html_url != undefined ? payload.issue.html_url : "",
 		//number: payload.issue.number != undefined ? payload.issue.number : -1,
-		number: 1,
+		number: 3,
 		job: payload.job != undefined ? payload.job: "",
 		//title: payload.issue.title != undefined ? payload.issue.title : "",
 		//state: payload.issue.state != undefined ? payload.issue.state : "",
