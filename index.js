@@ -477,7 +477,7 @@ function getValuesFromPayload(payload, env) {
 		//action: payload.action != undefined ? payload.action : "",
 		//url: payload.issue.html_url != undefined ? payload.issue.html_url : "",
 		//number: payload.issue.number != undefined ? payload.issue.number : -1,
-		number: 1,
+		//number: 1,
 		//title: payload.issue.title != undefined ? payload.issue.title : "",
 		//state: payload.issue.state != undefined ? payload.issue.state : "",
 		//user: payload.issue.user.login != undefined ? payload.issue.user.login : "",
@@ -490,9 +490,9 @@ function getValuesFromPayload(payload, env) {
 		//label: "",
 		//comment_text: "",
 		//comment_url: "",
-		organization: "",
-		repository: "",
-		sha : payload.sha,
+		//organization: "",
+		//repository: "",
+		//sha : payload.sha,
 		env: {
 			organization: env.ado_organization != undefined ? env.ado_organization : "",
 			orgUrl: env.ado_organization != undefined ? "https://dev.azure.com/" + env.ado_organization : "",
@@ -506,7 +506,7 @@ function getValuesFromPayload(payload, env) {
 			bypassRules: env.ado_bypassrules != undefined ? env.ado_bypassrules : false
 		}
 	};
-	console.log(vm.sha);
+	//console.log(vm.sha);
 	console.log("before payload.label");
 	// label is not always part of the payload
 	//if (payload.label != undefined) {
