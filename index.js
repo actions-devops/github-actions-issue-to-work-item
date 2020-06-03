@@ -28,7 +28,7 @@ async function main() {
 			//vm = getValuesFromPayload(testPayload, env);
 		} else {
 			console.log("Set values from payload & env");
-			vm = getValuesFromPayload(context, env);
+			vm = getValuesFromPayload(github.context, env);
 		}
 
 		// todo: validate we have all the right inputs
@@ -478,7 +478,7 @@ function getValuesFromPayload(payload, env) {
 		//url: payload.issue.html_url != undefined ? payload.issue.html_url : "",
 		//number: payload.issue.number != undefined ? payload.issue.number : -1,
 		number: 1,
-		job: payload.job,
+		job: payload.job != undefined ? payload.job: "",
 		//title: payload.issue.title != undefined ? payload.issue.title : "",
 		//state: payload.issue.state != undefined ? payload.issue.state : "",
 		//user: payload.issue.user.login != undefined ? payload.issue.user.login : "",
